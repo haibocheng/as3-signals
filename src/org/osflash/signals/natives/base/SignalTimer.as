@@ -1,15 +1,22 @@
 package org.osflash.signals.natives.base 
 {
-	import flash.utils.Timer;
+	import org.osflash.signals.natives.sets.NativeSignalSet;
 	import org.osflash.signals.natives.sets.TimerSignalSet;
-	
-	public class SignalTimer extends Timer
+
+	import flash.utils.Timer;
+
+	public class SignalTimer extends Timer implements ISignalSetOwner
 	{
-		private var _signals:TimerSignalSet;
-				
+		private var _signals:NativeSignalSet;
+		
+		public function get nativeSignalSet():NativeSignalSet
+		{
+			return _signals ||= new TimerSignalSet(this);
+		}
+		
 		public function get signals():TimerSignalSet 
 		{ 
-			return _signals ||= new TimerSignalSet(this);
+			return nativeSignalSet as TimerSignalSet;
 		}
 	}
 }

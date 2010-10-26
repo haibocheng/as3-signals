@@ -1,15 +1,22 @@
 package org.osflash.signals.natives.base 
 {
-	import flash.display.Sprite;
 	import org.osflash.signals.natives.sets.InteractiveObjectSignalSet;
-	
-	public class SignalSprite extends Sprite
+	import org.osflash.signals.natives.sets.NativeSignalSet;
+
+	import flash.display.Sprite;
+
+	public class SignalSprite extends Sprite implements ISignalSetOwner
 	{
-		private var _signals:InteractiveObjectSignalSet;
+		private var _signals:NativeSignalSet;
+		
+		public function get nativeSignalSet():NativeSignalSet
+		{
+			return _signals ||= new InteractiveObjectSignalSet(this);
+		}
 				
 		public function get signals():InteractiveObjectSignalSet 
 		{ 
-			return _signals ||= new InteractiveObjectSignalSet(this);
+			return nativeSignalSet as InteractiveObjectSignalSet ;
 		}
 	}
 }

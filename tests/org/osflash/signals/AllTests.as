@@ -1,7 +1,6 @@
 package org.osflash.signals
 {
 	import org.osflash.signals.natives.AmbiguousRelationshipInNativeSignalTest;
-	import org.osflash.signals.natives.base.SignalSpriteTest;
 	import org.osflash.signals.natives.MXMLNativeSignalTest;
 	import org.osflash.signals.natives.NativeMappedSignalBoundaryUseTest;
 	import org.osflash.signals.natives.NativeMappedSignalDefaultsTest;
@@ -10,6 +9,7 @@ package org.osflash.signals
 	import org.osflash.signals.natives.NativeMappedSignalObjectArgTest;
 	import org.osflash.signals.natives.NativeRelaySignalTest;
 	import org.osflash.signals.natives.NativeSignalTest;
+	import org.osflash.signals.natives.base.SignalSpriteTest;
 	import org.osflash.signals.natives.sets.NativeSignalSetTest;
 
 	[Suite]
